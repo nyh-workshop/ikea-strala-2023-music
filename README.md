@@ -23,19 +23,33 @@ BCLK | 31
 DIN | 34
 SD | 28
 
+# Caution: It is best not leave the mod running unattended! Remove batteries when not used in long period!
+
 ## Connection to the power board
 
-The lamp is powered by 3x Ikea Ladda batteries, and they are at total 3.6v. The Pico 2 module contains As mentioned in the [tutorial](https://randomnerdtutorials.com/power-raspberry-pi-pico-6-different-ways/#:~:text=For%20supplying%20power%20to%20the,cables%20to%20the%20battery%20pack.), connect the VSYS from the other end of the switch (see picture - left side, where the red cable goes to the VSYS). Pico 2's ground must be connected to the board's ground too.
+The lamp is powered by 3x Ikea Ladda batteries, and they are at total 3.6v.
+
+As mentioned in the [tutorial](https://randomnerdtutorials.com/power-raspberry-pi-pico-6-different-ways/#:~:text=For%20supplying%20power%20to%20the,cables%20to%20the%20battery%20pack.), connect the VSYS from the other end of the switch (see picture with red arrow).
+
+![](ikea_strala_mod_power.jpg)
+
+Pico 2's ground must be connected to the board's ground too.
+
+Put some cardboard and some kapton tape to prevent the Pico 2, the MAX98357 module and the speaker from touching the screws at the bottom.
 
 ![](ikea_strala_mod_1.jpg)
 
-Put some cardboard and some kapton tape to prevent the Pico 2, the MAX98357 module and the speaker from touching the screws at the bottom.
+![](ikea_strala_mod_UnderBatteryBox.jpg)
 
 ## Arduino sketch and MIDI songs
 
 You must also need to set Flash Size in Arduino "**Sketch 3MB, Flash 1MB**". For simplicity purposes, there is a small soundfont file included (inside `/data/soundfont`) if you need to quickly test the MIDI player.
 
 For Christmas songs, it is recommended to get simple Christmas piano midi files. To uploade these files you need the [uploader tool installed](https://github.com/earlephilhower/arduino-littlefs-upload). Files must be inside `/data` folder in the sketch folder.
+
+In the Arduino, install the VSIX from the [github page](https://github.com/earlephilhower/arduino-littlefs-upload).
+
+Once it is installed, do a `Ctrl-Shift-P` and then search "`Upload LittleFs to...`". Before pressing enter, make sure the Pico 2 is in BOOTSEL mode.
 
 ## How it works
 
